@@ -1,0 +1,38 @@
+# OPTIONAL — delete this file if you don't want auto-generated stats cards.
+#
+# Why this exists: the public github-readme-stats instance (the card service
+# most profiles use) was returning HTTP 503 "DEPLOYMENT_PAUSED" when this was
+# set up, so those cards render as broken images. This Action generates the
+# same kind of cards and commits them into profile-summary-card-output/, so
+# the profile has no runtime dependency on a third-party service.
+#
+# After the first successful run, open:
+#     profile-summary-card-output/github_dark/README.md
+# It contains ready-to-paste <img> tags with the exact paths. Paste the ones
+# you want into README.md — don't guess the filenames.
+
+name: Profile cards
+
+on:
+  schedule:
+    # Daily, deliberately off the hour to avoid the top-of-hour rush.
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: xDivyanshx
+          BRANCH_NAME: main
+          # One theme only. Empty string generates every theme (noisy).
+          THEME: github_dark

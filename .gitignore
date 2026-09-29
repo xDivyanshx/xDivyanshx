@@ -1,0 +1,12 @@
+# Internal ops notes. This repo is public (it renders the profile page), and
+# PUBLISHING.md is a working document: it names the path to the live Gmail OAuth
+# secret, records the repo-visibility history, and describes the data/code
+# split. None of that belongs on a public profile — it stays local.
+#
+# PUBLISHING.md is still the file to read and edit; it just isn't versioned.
+PUBLISHING.md
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
